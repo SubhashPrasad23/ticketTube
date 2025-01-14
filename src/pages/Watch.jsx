@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-
+import {YT_API_KEY} from "../utils/apiKey"
 
 const Watch = () => {
   const [search, setSearch] = useState("");
@@ -9,7 +9,7 @@ const Watch = () => {
   const [watchLaterVideos, setWatchLaterVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-  const apiKey = import.meta.env.VITE_YT_API_KEY;
+  const apiKey = YT_API_KEY;
 
 
   const handleSearch = async (e) => {
