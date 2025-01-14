@@ -8,7 +8,7 @@ const Footer = () => {
       <div className=" mx-auto px-4">
         <div className="flex md:flex-row flex-col justify-between gap-5">
           <NavLink to="/">
-            <h3 className="text-2xl font-bold">BooknWatch</h3>
+            <h3 className="text-2xl font-bold">TicketTube</h3>
           </NavLink>
           <ul className="flex md:flex-row flex-col md:gap-6">
             <li className="cursor-pointer">About</li>
@@ -37,7 +37,7 @@ const Footer = () => {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} BooknWatch. All rights reserved.
+            &copy; {new Date().getFullYear()} TicketTube. All rights reserved.
           </p>
         </div>
       </div>

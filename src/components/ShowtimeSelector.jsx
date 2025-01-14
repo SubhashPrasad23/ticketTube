@@ -1,6 +1,6 @@
 import { format, addDays } from "date-fns";
-import { toast } from "react-toastify"; 
-import "react-toastify/dist/ReactToastify.css"; 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ShowtimeSelector = ({
   details,
@@ -19,10 +19,25 @@ const ShowtimeSelector = ({
   const numberOfSeats = Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
   const handleBookSeats = () => {
-    if (!selectedDate || !selectedTime || !numberOfSeat) {
+    if (!selectedDate && !selectedTime && !numberOfSeat) {
       toast.error(
-        "Please select a date, time, and number of seats before proceeding."
+        "Oops! You need to choose a date, time, and number of seats first."
       );
+      return;
+    }
+
+    if (!selectedDate) {
+      toast.error("Please select a date.");
+      return;
+    }
+
+    if (!selectedTime) {
+      toast.error("Please select a time.");
+      return;
+    }
+
+    if (!numberOfSeat) {
+      toast.error("Please select the number of seats.");
       return;
     }
 
@@ -32,7 +47,6 @@ const ShowtimeSelector = ({
   return (
     <div className="space-y-10 px-5">
       <h3 className="text-xl font-bold">{details.original_title}</h3>
-
       <div className="flex md:space-x-4 space-x-2">
         {nextFiveDays.map((date, index) => (
           <div
@@ -69,7 +83,7 @@ const ShowtimeSelector = ({
       </div>
 
       <div className="space-y-2">
-        <p className="text-xl">How many seats ?</p>
+        <p className="text-lg">How many seats?</p>
         <div className=" flex flex-wrap items-center gap-3">
           {numberOfSeats.map((number) => (
             <p
@@ -86,8 +100,8 @@ const ShowtimeSelector = ({
       </div>
 
       <button
-        onClick={handleBookSeats} 
-        className="w-full text-white md:p- p-2 bg-[#31be98] shadow-inner shadow-[#96e6d0]"
+        onClick={handleBookSeats}
+        className="w-full text-white md:p-2 bg-[#31be98] shadow-inner shadow-[#96e6d0]"
       >
         Book seats
       </button>

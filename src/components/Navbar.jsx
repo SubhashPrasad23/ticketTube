@@ -13,7 +13,14 @@ const Navbar = () => {
     <>
       <nav className="py-5 px-5 w-full bg-[#0A1E5E] text-white">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold">BooknWatch</div>
+          <NavLink>
+            <div className="text-2xl font-bold flex items-center gap-1">
+              <h3 className="bg-[#30A586] shadow-inner shadow-teal-700 px-2 py-1">
+                Ticket
+              </h3>
+              <span className="text-[#30A586]">Tube</span>
+            </div>
+          </NavLink>
 
           <ul className="hidden md:flex font-semibold gap-5">
             <li className="text-xl">
