@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify"; 
-import "react-toastify/dist/ReactToastify.css"; 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import MovieOverview from "./MovieOverview";
 import ShowtimeSelector from "./ShowtimeSelector";
 import SeatSelection from "./SeatSelection";
-import { seatData } from "../mockData/SeatingData"; 
+import { seatData } from "../mockData/SeatingData";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -20,6 +20,8 @@ const MovieDetails = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const ref = useRef(null);
   const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+
+console.log("details",details)
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -53,8 +55,20 @@ const MovieDetails = () => {
 
   return (
     <div className="relative h-full w-full flex flex-col place-content-center place-items-center">
-      <div className="w-3/4 flex md:flex-row flex-col gap-5 shadow-inner shadow-gray-200 rounded-2xl bg-gray-200 p-5 m-5">
-        <MovieOverview details={details} setIsModal={setIsModal} isUpcoming={isUpcoming} />
+      <div
+        className="w-3/4 flex  h-full md:flex-row flex-col gap-5 shadow-inner shadow-gray-200 rounded-2xl p-5 m-5"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0.2)), url(https://image.tmdb.org/t/p/w500/${details.poster_path})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "right",
+        }}
+      >
+        <MovieOverview
+          details={details}
+          setIsModal={setIsModal}
+          isUpcoming={isUpcoming}
+        />
         {isModal && (
           <div className="fixed shadow-lg shadow-red-800 inset-0 flex items-center justify-center backdrop-blur-md z-50">
             <div
@@ -96,5 +110,3 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-
-

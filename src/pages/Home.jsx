@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     setFilteredMovies(movieList);
-  }, [movieList]); 
+  }, [movieList,searchMovie]); 
 
   const handlerSearch = () => {
     if (searchMovie.trim() === "") {

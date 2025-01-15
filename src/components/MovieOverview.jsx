@@ -17,7 +17,7 @@ const MovieOverview = ({ details, setIsModal, isUpcoming }) => {
 
   return (
     <div className="h-full w-full  flex lg:flex-row flex-col md:gap-5  items-center justify-center">
-      <div className="xl:w-72 md:w-80 w-full h-full rounded-lg">
+      <div className="xl:w-72 md:w-80 w-full h-full rounded-lg  shadow-md shadow-white">
         <img
           src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
           className="w-full h-full flex-shrink-0 rounded-lg"
@@ -25,12 +25,12 @@ const MovieOverview = ({ details, setIsModal, isUpcoming }) => {
         />
       </div>
       <div className="lg:w-4/5 w-full space-y-5">
-        <div>
-          <h6 className="font-bold md:text-3xl text-2xl tracking-wide my-4">
+        <div className="text-gray-400">
+          <h6 className="font-bold md:text-3xl text-2xl tracking-wide my-4 text-[#30A586]">
             {details.original_title}
           </h6>
           <div className="pb-1">
-            <strong className="md:text-xl text-lg font-semibold">
+            <strong className="md:text-xl text-lg font-semibold text-white">
               About the movie
             </strong>
             <p className="xl:text-lg text-md">{details.overview}</p>
